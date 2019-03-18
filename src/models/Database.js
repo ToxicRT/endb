@@ -265,17 +265,6 @@ class Database {
     }
 
     /**
-     * Pushes a value into a key
-     * @param {string|number} key
-     * @param {string|number|Object} value
-     * @returns {*}
-     */
-    push(key, value) {
-        this._check();
-        return console.log('WIP\tKey: ', key, '\Value: ', value);
-    }
-
-    /**
      * Sets a key and value to the database
      * @param {string|number} key
      * @param {string|number|Object} value

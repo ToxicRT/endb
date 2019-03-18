@@ -1,8 +1,3 @@
-// Type definitions for endb
-// Project: https://github.com/endb/endb
-// Definitions by: chroventer <https://github.com/chroventer>
-// License: MIT
-
 declare module 'endb' {
 
   /**
@@ -156,14 +151,6 @@ declare module 'endb' {
      * Database.has('key');
      */
     public has(key: string | number): boolean;
-
-    /**
-     * Pushes a value into a key
-     * @param {string|number} key
-     * @param {string|number|Object} value
-     * @returns {*}
-     */
-    public push(key: string | number, value: string | number | object): any;
 
     /**
      * Sets a key and value to the database

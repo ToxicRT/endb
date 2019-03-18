@@ -14,7 +14,7 @@
 
 ## About
 
-Endb – Enhanced Database, is a simplified and powerful database for storing, accessing, and managing database.
+[Endb – Enhanced Database](https://endb.js.org) is a simplified and powerful database for storing, accessing, and managing database.
 
 - Object-oriented
 - Persistent storage
@@ -37,7 +37,7 @@ Endb – Enhanced Database, is a simplified and powerful database for storing, a
 - Install [XCode](https://developer.apple.com/xcode)
 - Run `npm i -g node-gyp` in Terminal
 - Run `node-gyp --python /path/to/python2.7` (skip this step if you didn't install python 3.x)
-- Run `npm i endb`
+- Run `npm i endb` in Terminal
 
 ### Linux
 
@@ -47,31 +47,29 @@ Endb – Enhanced Database, is a simplified and powerful database for storing, a
 
 ```js
 const Endb = require('endb');
-const db = new Endb.Database({
-  name: 'endb', // optional
-});
+const db = new Endb.Database();
 
-db.set('account_1234567890', 'password12345'); // -> { key: 'account_1234567890', value: 'password12345' }
+db.set('account_1234567890', 'password'); // -> { key: 'account_1234567890', value: 'password' }
 db.set('account_123456789', {
   id: 123456789,
-  password: 'password1234567890',
+  password: 'password',
   checked: true
-}); // -> { key: 'account_123456789', value: '{"id":123456789,"password":"password1234567890","checked":true}' }
+}); // -> { key: 'account_123456789', value: '{"id":123456789,"password":"password","checked":true}' }
 
-db.get('account_1234567890'); // -> password12345
+db.get('account_1234567890'); // -> password
 
 db.has('account_1234567890'); // -> true
 
 db.delete('account_1234567890'); // -> true
 
-db.getAll() // -> // -> [ { key: 'account_123456789', value: '{"id":123456789,"password":"password1234567890","checked":true}' } ]
+db.getAll() // -> // -> [ { key: 'account_123456789', value: '{"id":123456789,"password":"password","checked":true}' } ]
 
 db.deleteAll(); // -> true
 ```
 
 ## Links
 
-- [Browse Documentation](https://endb.js.org)
-- [Install using NPM](https://npmjs.com/package/endb)
+- [Documentation](https://endb.js.org)
+- [NPM](https://npmjs.com/package/endb)
 - [Star on GitHub](https://github.com/endb/endb)
-- [Join Discord](https://discord.gg/3yXx8CN)
+- [Discord](https://discord.gg/3yXx8CN)

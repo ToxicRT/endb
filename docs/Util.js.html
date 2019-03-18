@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Home - Endb</title>
+    <title>Util.js - Endb</title>
     
     <meta name="description" content="Endb – Enhanced Database, is a simplified and powerful database for storing, accessing, and managing database." />
     
@@ -42,93 +42,51 @@
 
 <div id="main">
     
+    <h1 class="page-title">Util.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
 
+const Error = require('./Error');
 
-    <section class="package">
-        <h3> </h3>		
+class Util {
+    constructor() {
+        throw new Error(`${this.constructor.name} may not be initiated`);
+    }
+
+    static test() {
+        return 'hello world';
+    }
+
+    /**
+     * Merges an object's property to other object
+     * @param {Object} defObj Object with fefault properties
+     * @param {Object} givenObj Object to assign default properties to
+     * @returns {Object}
+     */
+    static mergeObject(defObj, givenObj) {
+        if (!givenObj) return defObj;
+        for (const key in defObj) {
+            if (!Object.prototype.hasOwnProperty.call(givenObj, defObj) || givenObj[key] === undefined) {
+                givenObj[key] = defObj[key];
+            } else if (givenObj[key] === Object(givenObj[key])) {
+                givenObj[key] = Util.mergeObject(defObj[key], givenObj[key]);
+            }
+        }
+        return givenObj;
+    }
+}
+
+module.exports = Util;</code></pre>
+        </article>
     </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme">
-        <article><h1>Endb</h1><p>
-  <a href="https://discord.gg/3yXx8CN"><img src="https://discordapp.com/api/guilds/519513445721178133/embed.png" alt="discord-server" /></a>
-  <a href="https://www.npmjs.com/package/endb"><img src="https://img.shields.io/npm/v/endb.svg" alt="npm-version" /></a>
-  <a href="https://www.npmjs.com/package/endb"><img src="https://img.shields.io/npm/dt/endb.svg" alt="npm-downloads" /></a>
-  <a href="https://david-dm.org/endb/endb"><img src="https://img.shields.io/david/endb/endb.svg"
-      alt="dependencies" /></a>
-  <a href="https://github.com/endb/endb/stargazers"><img src="https://img.shields.io/github/stars/endb/endb.svg?style=social&label=Star"></a>
-</p>
-<p>
-  <a href="https://nodei.co/npm/endb/"><img src="https://nodei.co/npm/endb.png?downloads=true&stars=true" alt="npm-info" /></a>
-</p>
-
-<h2>About</h2><p><a href="https://endb.js.org">Endb – Enhanced Database</a> is a simplified and powerful database for storing, accessing, and managing database.</p>
-<ul>
-<li>Object-oriented</li>
-<li>Persistent storage</li>
-<li>Configurable</li>
-<li>Performant</li>
-<li>Beginner-friendly</li>
-</ul>
-<h2>Installation</h2><p><strong>Node.js 10.0.0 or newer is required.</strong></p>
-<h3>Windows</h3><ul>
-<li>Run <code>npm -g --add-python-to-path install windows-build-tools node-gyp</code> in CMD/Powershell as administrator</li>
-<li>Restart CMD/Powershell</li>
-<li>Run <code>npm i endb</code></li>
-</ul>
-<h3>Mac</h3><ul>
-<li>Install <a href="https://developer.apple.com/xcode">XCode</a></li>
-<li>Run <code>npm i -g node-gyp</code> in Terminal</li>
-<li>Run <code>node-gyp --python /path/to/python2.7</code> (skip this step if you didn't install python 3.x)</li>
-<li>Run <code>npm i endb</code> in Terminal</li>
-</ul>
-<h3>Linux</h3><ul>
-<li>Run <code>npm i endb</code> in Terminal</li>
-</ul>
-<h2>Example</h2><pre class="prettyprint source lang-js"><code>const Endb = require('endb');
-const db = new Endb.Database();
-
-db.set('account_1234567890', 'password'); // -> { key: 'account_1234567890', value: 'password' }
-db.set('account_123456789', {
-  id: 123456789,
-  password: 'password',
-  checked: true
-}); // -> { key: 'account_123456789', value: '{&quot;id&quot;:123456789,&quot;password&quot;:&quot;password&quot;,&quot;checked&quot;:true}' }
-
-db.get('account_1234567890'); // -> password
-
-db.has('account_1234567890'); // -> true
-
-db.delete('account_1234567890'); // -> true
-
-db.getAll() // -> // -> [ { key: 'account_123456789', value: '{&quot;id&quot;:123456789,&quot;password&quot;:&quot;password&quot;,&quot;checked&quot;:true}' } ]
-
-db.deleteAll(); // -> true</code></pre><h2>Links</h2><ul>
-<li><a href="https://endb.js.org">Documentation</a></li>
-<li><a href="https://npmjs.com/package/endb">NPM</a></li>
-<li><a href="https://github.com/endb/endb">Star on GitHub</a></li>
-<li><a href="https://discord.gg/3yXx8CN">Discord</a></li>
-</ul></article>
-    </section>
-
-
 
 
 

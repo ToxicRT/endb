@@ -31,10 +31,12 @@
   },
   "keywords": [
     "database",
-    "sqlite",
-    "sqlite3",
     "db",
     "sql",
+    "sqlite",
+    "sqlite3",
+    "util",
+    "cli",
     "discord"
   ]
 }
