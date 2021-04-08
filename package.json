@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "docdash": "^1.0.3",
-    "typescript": "^3.3.3333"
+    "typescript": "^4.2.4"
   },
   "homepage": "https://endb.js.org",
   "repository": {
